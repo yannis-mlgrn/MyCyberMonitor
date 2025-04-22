@@ -22,7 +22,7 @@ class BlogPost(BaseModel):
 @app.get("/cve/recent", response_model=List[CVE], tags=["CVE"])
 async def get_recent_cves(n: int = 5) -> List[CVE]:
     """
-    Get the most recent 'n' CVEs from CIRCL public API.
+    Get the most recent 'n' CVEs by scraping data from the Vulmon website.
     Defaults to 5 if 'n' is not provided.
     """
     return get_cve_list(n)
