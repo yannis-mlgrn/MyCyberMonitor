@@ -2,7 +2,7 @@
 author : @yannis_mlgrn
 Scraping tool to extract CVE links from the Vulmon website.
 This script uses Selenium to automate the process of navigating
-and gather informations about trending CVEs.
+and gather information about trending CVEs.
 """
 
 from selenium import webdriver
