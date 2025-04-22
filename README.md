@@ -1,4 +1,4 @@
-# MyCyberMonitoring
+# My Cyber Monitor
 Stay updated with trending CVEs and cyber articles, tailored for cybersecurity enthusiasts.
 
 ## Backend Installation Guide
