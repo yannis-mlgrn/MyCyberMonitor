@@ -12,7 +12,7 @@ import time
 from app.models.cve import CVE
 
 
-def get_cve_list(n:int=5) -> list[CVE]:
+def get_cve_list(n: int = 5) -> list[CVE]:
     """
     Scrape the latest CVEs from the Vulmon website.
     Returns a list of dictionaries containing CVE ID, description, and link.
