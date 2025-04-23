@@ -60,8 +60,8 @@ async def vote(req: VoteRequest):
         if post.get("title") == title:
             post["vote"] += 1
             found = True
-        if not found:
-            raise HTTPException(status_code=404, detail="Title not found")
+    if not found:
+        raise HTTPException(status_code=404, detail="Title not found")
     with open("app/data/blogpost.json", "w", encoding="utf-8") as f:
         json.dump(posts, f, ensure_ascii=False, indent=2)
     return posts
@@ -82,8 +82,8 @@ async def unvote(req: VoteRequest):
         if post.get("title") == title:
             post["vote"] -= 1
             found = True
-        if not found:
-            raise HTTPException(status_code=404, detail="Title not found")
+    if not found:
+        raise HTTPException(status_code=404, detail="Title not found")
     with open("app/data/blogpost.json", "w", encoding="utf-8") as f:
         json.dump(posts, f, ensure_ascii=False, indent=2)
     return posts
