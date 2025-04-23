@@ -1,6 +1,7 @@
 import feedparser
 from app.models.blogPost import BlogPost
 from datetime import datetime
+import json
 
 rss_url = {
     "synactiv": "https://www.synacktiv.com/en/feed/lastblog.xml",
@@ -11,7 +12,7 @@ rss_url = {
 }
 
 
-def get_rss_feed(rss_url: dict = rss_url, n: int = 5) -> list[BlogPost]:
+def get_rss_feed(rss_url: dict = rss_url, n: int = 5):
     """
     fetch the RSS feed from the given URL and return the parsed feed.
     It fetches the 'n' most recent entries from each feed.
@@ -37,9 +38,9 @@ def get_rss_feed(rss_url: dict = rss_url, n: int = 5) -> list[BlogPost]:
                     title=entry.title,
                     link=entry.link,
                     description=entry.description,
-                    published=datetime.strptime(
+                    published=str(datetime.strptime(
                         entry.published, "%a, %d %b %Y %H:%M:%S %z"
-                    ),
+                    )),
                     author=(
                         entry.author
                         if hasattr(entry, 'author')
@@ -48,5 +49,13 @@ def get_rss_feed(rss_url: dict = rss_url, n: int = 5) -> list[BlogPost]:
                     vote=0
                 )
             )
-    # Return the sorted list of blog posts by published date
-    return sorted(final_feed, key=lambda post: post.published, reverse=True)
+    # Sort the list of blog posts by published date
+    final_feed = sorted(
+        final_feed, key=lambda post: post.published, reverse=True
+    )
+    json_object = json.dumps(
+        [post.model_dump() for post in final_feed],
+        indent=4
+    )
+    with open('app/data/blogpost.json', "w") as outfile:
+        outfile.write(json_object)

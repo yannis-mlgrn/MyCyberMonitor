@@ -1,3 +1,7 @@
+################# MODIFICATION #####################
+# Remove all data 
+app/data/*
+####################################################
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
