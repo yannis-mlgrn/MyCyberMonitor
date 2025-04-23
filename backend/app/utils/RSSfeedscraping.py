@@ -11,7 +11,7 @@ rss_url = {
 }
 
 
-def get_rss_feed(rss_url: dict = rss_url, n: int = 5) -> dict:
+def get_rss_feed(rss_url: dict = rss_url, n: int = 5) -> list[BlogPost]:
     """
     fetch the RSS feed from the given URL and return the parsed feed.
     It fetches the 'n' most recent entries from each feed.
