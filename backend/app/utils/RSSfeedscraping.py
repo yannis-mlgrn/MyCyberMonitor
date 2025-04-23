@@ -38,9 +38,9 @@ def get_rss_feed(rss_url: dict = rss_url, n: int = 5):
                     title=entry.title,
                     link=entry.link,
                     description=entry.description,
-                    published=str(datetime.strptime(
+                    published=datetime.strptime(
                         entry.published, "%a, %d %b %Y %H:%M:%S %z"
-                    )),
+                    ).isoformat(),
                     author=(
                         entry.author
                         if hasattr(entry, 'author')
