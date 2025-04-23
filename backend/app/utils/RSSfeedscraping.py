@@ -53,9 +53,11 @@ def get_rss_feed(rss_url: dict = rss_url, n: int = 5):
     final_feed = sorted(
         final_feed, key=lambda post: post.published, reverse=True
     )
+    # Create the output JSON file
     json_object = json.dumps(
         [post.model_dump() for post in final_feed],
         indent=4
     )
+    # Write the JSON object to a file
     with open('app/data/blogpost.json', "w") as outfile:
         outfile.write(json_object)

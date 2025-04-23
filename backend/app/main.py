@@ -38,7 +38,7 @@ async def get_latest_blog_articles():
     (RSS parsing mock).
     """
     data_file = "blogpost.json"
-    cve_json_file_path = (
+    blogPost_json_file_path = (
         Path(__file__).resolve().parent.parent / "app" / "data" / data_file
     )
-    return json.loads(cve_json_file_path.read_text(encoding="utf-8"))
+    return json.loads(blogPost_json_file_path.read_text(encoding="utf-8"))

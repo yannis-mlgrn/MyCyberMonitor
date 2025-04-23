@@ -16,7 +16,7 @@ import json
 def get_cve_list(n: int = 5):
     """
     Scrape the latest CVEs from the Vulmon website.
-    Returns a list of dictionaries containing CVE ID, description, and link.
+    Writes the CVE data to a JSON file and returns a list of CVE objects.
     """
     # Configure Chrome options
     options = Options()
