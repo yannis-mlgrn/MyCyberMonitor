@@ -15,9 +15,9 @@ We leverage the following trusted sources and blogs to provide you with up-to-da
 ### Blog Articles
 
 - [Synacktiv Blog](https://www.synacktiv.com/)
-- [The Hacker News](https://feeds.feedburner.com/TheHackersNews)
-- [Conquer Your Risk](https://www.conquer-your-risk.com/category/articles/feed)
-- [Quarkslab Blog](https://blog.quarkslab.com/feeds/all.atom.xml)
+- [The Hacker News](https://thehackernews.com/)
+- [Conquer Your Risk](https://www.conquer-your-risk.com)
+- [Quarkslab Blog](https://blog.quarkslab.com)
 
 ---
 
