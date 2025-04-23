@@ -1,9 +1,10 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException
 from typing import List
 from app.utils.cveScraping import get_cve_list
 from app.utils.RSSfeedscraping import get_rss_feed
 from app.models.cve import CVE
 from app.models.blogPost import BlogPost
+from app.models.voteRequest import VoteRequest
 import json
 from pathlib import Path
 
@@ -42,3 +43,47 @@ async def get_latest_blog_articles():
         Path(__file__).resolve().parent.parent / "app" / "data" / data_file
     )
     return json.loads(blogPost_json_file_path.read_text(encoding="utf-8"))
+
+
+@app.post("/blogs/vote", response_model=List[BlogPost], tags=["Voting"])
+async def vote(req: VoteRequest):
+    """
+    Cast a vote for a given article title.
+    """
+    title = req.title.strip()
+    if not title:
+        raise HTTPException(status_code=400, detail="Title must not be empty")
+    with open('app/data/blogpost.json', "r", encoding="utf-8") as data:
+        posts = json.load(data)
+    found = False
+    for post in posts:
+        if post.get("title") == title:
+            post["vote"] += 1
+            found = True
+    if not found:
+        raise HTTPException(status_code=404, detail="Title not found")
+    with open("app/data/blogpost.json", "w", encoding="utf-8") as f:
+        json.dump(posts, f, ensure_ascii=False, indent=2)
+    return posts
+
+
+@app.post("/blogs/unvote", response_model=List[BlogPost], tags=["Voting"])
+async def unvote(req: VoteRequest):
+    """
+    Cast a vote for a given article title.
+    """
+    title = req.title.strip()
+    if not title:
+        raise HTTPException(status_code=400, detail="Title must not be empty")
+    with open('app/data/blogpost.json', "r", encoding="utf-8") as data:
+        posts = json.load(data)
+    found = False
+    for post in posts:
+        if post.get("title") == title:
+            post["vote"] -= 1
+            found = True
+    if not found:
+        raise HTTPException(status_code=404, detail="Title not found")
+    with open("app/data/blogpost.json", "w", encoding="utf-8") as f:
+        json.dump(posts, f, ensure_ascii=False, indent=2)
+    return posts
