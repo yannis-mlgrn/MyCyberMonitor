@@ -19,6 +19,8 @@ def get_rss_feed(rss_url: dict = rss_url, n: int = 5):
     These entries are returned as a list of BlogPost objects.
     """
     final_feed = []
+    with open('app/data/blogpost.json', "r", encoding="utf-8") as data:
+        posts = json.load(data)
     for url in rss_url.values():
         # Parse le flux RSS
         feed = feedparser.parse(url)
@@ -32,6 +34,12 @@ def get_rss_feed(rss_url: dict = rss_url, n: int = 5):
                 ('@' in entry.author or 'webmaster' in entry.author.lower())
             ):
                 entry.author = source_key
+            # Check if the title matches an existing post and get its vote
+            existing_post = next(
+                (post for post in posts if post["title"] == entry.title),
+                None
+            )
+            vote = existing_post["vote"] if existing_post else 0
             # Create the output list
             final_feed.append(
                 BlogPost(
@@ -46,7 +54,7 @@ def get_rss_feed(rss_url: dict = rss_url, n: int = 5):
                         if hasattr(entry, 'author')
                         else source_key
                     ),
-                    vote=0
+                    vote=vote
                 )
             )
     # Sort the list of blog posts by published date
