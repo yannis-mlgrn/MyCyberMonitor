@@ -32,3 +32,11 @@ Follow these steps to set up the backend:
     ```bash
     uvicorn app.main:app --reload
     ```
+
+6. **🌐 Explore the API Documentation**:
+
+    Once the backend server is running, you can interact with the API using the Swagger UI. Open your browser and navigate to:
+
+    [Swagger UI - API Documentation](http://127.0.0.1:8000/docs)
+
+    This interface allows you to test the API endpoints and view detailed documentation.

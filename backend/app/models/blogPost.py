@@ -1,4 +1,3 @@
-from datetime import datetime
 from pydantic import BaseModel
 
 
@@ -6,6 +5,6 @@ class BlogPost(BaseModel):
     title: str
     description: str
     link: str
-    published: datetime
+    published: str
     author: str
     vote: int = 0

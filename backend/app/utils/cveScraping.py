@@ -10,12 +10,13 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
 import time
 from app.models.cve import CVE
+import json
 
 
-def get_cve_list(n: int = 5) -> list[CVE]:
+def get_cve_list(n: int = 5):
     """
     Scrape the latest CVEs from the Vulmon website.
-    Returns a list of dictionaries containing CVE ID, description, and link.
+    Writes the CVE data to a JSON file and returns a list of CVE objects.
     """
     # Configure Chrome options
     options = Options()
@@ -49,6 +50,8 @@ def get_cve_list(n: int = 5) -> list[CVE]:
             ))
         except Exception:
             continue
-
     driver.quit()
-    return cve_list
+    # put all data into the json file
+    json_object = json.dumps([cve.model_dump() for cve in cve_list], indent=4)
+    with open('app/data/cve.json', "w") as outfile:
+        outfile.write(json_object)
