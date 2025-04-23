@@ -8,7 +8,8 @@ rss_url = {
     "The Hacker News": "https://feeds.feedburner.com/TheHackersNews",
     "conquer-your-risk": (
         "https://www.conquer-your-risk.com/category/articles/feed"
-    )
+    ),
+    "Quarkslab": "https://blog.quarkslab.com/feeds/all.atom.xml"
 }
 
 
@@ -40,15 +41,17 @@ def get_rss_feed(rss_url: dict = rss_url, n: int = 5):
                 None
             )
             vote = existing_post["vote"] if existing_post else 0
-            # Create the output list
+            # Check the format of the published date
+            if not is_isoformat(entry.published):
+                entry.published = datetime.strptime(
+                        entry.published, "%a, %d %b %Y %H:%M:%S %z"
+                    ).isoformat()
             final_feed.append(
                 BlogPost(
                     title=entry.title,
                     link=entry.link,
                     description=entry.description,
-                    published=datetime.strptime(
-                        entry.published, "%a, %d %b %Y %H:%M:%S %z"
-                    ).isoformat(),
+                    published=entry.published,
                     author=(
                         entry.author
                         if hasattr(entry, 'author')
@@ -69,3 +72,14 @@ def get_rss_feed(rss_url: dict = rss_url, n: int = 5):
     # Write the JSON object to a file
     with open('app/data/blogpost.json', "w") as outfile:
         outfile.write(json_object)
+
+
+def is_isoformat(date_str: str) -> bool:
+    """
+    Check if the given date string is in ISO format.
+    """
+    try:
+        datetime.fromisoformat(date_str)
+        return True
+    except ValueError:
+        return False

@@ -1,27 +1,37 @@
 # My Cyber Monitor
-Stay updated with trending CVEs and cyber articles, tailored for cybersecurity enthusiasts.
 
-## Backend Installation Guide
+Stay informed with the latest trending CVEs and cybersecurity articles, curated for enthusiasts and professionals alike.
 
-Follow these steps to set up the backend:
+---
 
-1. **Navigate to the backend directory**:
-    ```bash
-    cd backend
-    ```
+## 🌐 Sources
 
-2. **Create a virtual environment**:
-    ```bash
-    python3 -m venv .venv
-    ```
+We leverage the following trusted sources and blogs to provide you with up-to-date information:
 
-3. **Activate the virtual environment and install dependencies**:
-    ```bash
-    source .venv/bin/activate
-    pip install -r requirements.txt
-    ```
+### Trending CVE Scraping
 
-4. **Verify the installation**:
-    Ensure all dependencies are installed correctly by checking the `requirements.txt` file and running the application.
+- [Vulmon Trends](https://vulmon.com/trends)
 
-For additional help, refer to the project documentation or contact the maintainers.
+### Blog Articles
+
+- [Synacktiv Blog](https://www.synacktiv.com/)
+- [The Hacker News](https://feeds.feedburner.com/TheHackersNews)
+- [Conquer Your Risk](https://www.conquer-your-risk.com/category/articles/feed)
+- [Quarkslab Blog](https://blog.quarkslab.com/feeds/all.atom.xml)
+
+---
+
+## 🛠️ Backend
+
+For more details, refer to the [Backend Documentation](backend/README.md).
+
+---
+
+## 🎨 Frontend
+
+🚧 **Under Construction** 🚧  
+Stay tuned for updates!
+
+---
+
+Thank you for using **My Cyber Monitor**! 💻🔒
