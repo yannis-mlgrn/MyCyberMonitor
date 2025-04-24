@@ -1,0 +1,11 @@
+@import "tailwindcss";
+@plugin "daisyui" {
+    themes: cupcake --default
+}
+
+@font-face {
+    font-family: 'SpecialGothicExpandedOne';
+    src: url('./assets/fonts/SpecialGothicExpandedOne-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }

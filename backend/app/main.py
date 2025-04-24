@@ -7,12 +7,21 @@ from app.models.blogPost import BlogPost
 from app.models.voteRequest import VoteRequest
 import json
 from pathlib import Path
+from fastapi.middleware.cors import CORSMiddleware
 
 
 app = FastAPI(
     title="My Cyber Monitor",
     version="0.1",
     description="Cyber threat intelligence monitor API (CVE, blogs, etc.)"
+)
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],            # toutes les origines
+    allow_credentials=True,
+    allow_methods=["*"],            # toutes les méthodes GET, POST, etc.
+    allow_headers=["*"],            # tous les headers
 )
 
 # initialize the data
