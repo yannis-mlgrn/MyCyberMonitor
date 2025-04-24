@@ -8,11 +8,8 @@
       <section class="blogs">
         <h2 class="section-title">Last Blog Articles</h2>
         <div class="section-body">
-          <!-- Affichage dynamique des articles de blog -->
-
-         <!-- Affichage dynamique des articles de blog -->
          <div v-for="(blog, index) in blogs" :key="index">
-            <BlogPost :blog="blog" />
+            <BlogPost :blog="blog" class="post" />
           </div>
         </div>
       </section>
@@ -76,6 +73,7 @@ onMounted(async () => {
 }
 
 .header {
+  margin-top: 1.5rem;
   padding: var(--gap) 0;
   text-align: center;
 }
@@ -96,7 +94,9 @@ onMounted(async () => {
   gap: var(--gap);
   margin-top: var(--gap);
 }
-
+.post {
+  margin-bottom: 1rem;
+}
 .blogs, .cves {
   background: var(--color-card);
   border-radius: var(--radius);
@@ -107,7 +107,6 @@ onMounted(async () => {
   padding: var(--gap);
   transition: box-shadow 0.2s;
 }
-
 .blogs:hover, .cves:hover {
   box-shadow: var(--shadow-strong);
 }

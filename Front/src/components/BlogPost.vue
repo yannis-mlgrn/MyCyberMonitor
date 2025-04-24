@@ -1,5 +1,5 @@
 <template>
-    <div class="card w-200 bg-base-100 card-md shadow-sm">
+    <div class="card w-225 bg-base-100 card-md shadow-sm">
   <div class="card-body">
     <h2 class="card-title blog-title">{{ blog.title }}</h2>
     <p v-html="blog.description"> </p>

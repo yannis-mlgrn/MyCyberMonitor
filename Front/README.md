@@ -1,5 +1,17 @@
-# Vue 3 + Vite
+## Installation du projet Vue.js avec Tailwind CSS
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+1. **Installation des dépendances**  
+    Installez les dépendances nécessaires en utilisant npm ou yarn :
+    ```bash
+    npm install
+    # ou
+    yarn install
+    ```
 
-Learn more about IDE Support for Vue in the [Vue Docs Scaling up Guide](https://vuejs.org/guide/scaling-up/tooling.html#ide-support).
+2. **Démarrage du projet**  
+    Lancez le serveur de développement pour vérifier le bon fonctionnement de l'application :
+    ```bash
+    npm run dev
+    # ou
+    yarn dev
+    ```

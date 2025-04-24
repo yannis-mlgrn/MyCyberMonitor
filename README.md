@@ -21,17 +21,28 @@ We leverage the following trusted sources and blogs to provide you with up-to-da
 
 ---
 
-## 🛠️ Backend
-
-For more details, refer to the [Backend Documentation](backend/README.md).
-
----
-
 ## 🎨 Frontend
 
-🚧 **Under Construction** 🚧  
-Stay tuned for updates!
+![Frontend Screenshot](./Front/doc/screen.png)
+
+The frontend provides an intuitive interface to explore the latest cybersecurity trends.  
+For installation and setup instructions, refer to the [Frontend Documentation](frontend/README.md).
 
 ---
 
-Thank you for using **My Cyber Monitor**! 💻🔒
+## 🛠️ Backend
+
+The backend powers the data aggregation and processing for **My Cyber Monitor**.  
+For installation and setup instructions, refer to the [Backend Documentation](backend/README.md).
+
+---
+
+## 📖 How to Contribute
+
+We welcome contributions from the community!  
+Feel free to submit issues, suggest features, or create pull requests to improve **My Cyber Monitor**.
+
+---
+
+Thank you for using **My Cyber Monitor**! 💻🔒  
+Stay secure and informed. 🚀
