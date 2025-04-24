@@ -4,9 +4,9 @@ from datetime import datetime
 import json
 
 rss_url = {
-    "synactiv": "https://www.synacktiv.com/en/feed/lastblog.xml",
+    "Synactiv": "https://www.synacktiv.com/en/feed/lastblog.xml",
     "The Hacker News": "https://feeds.feedburner.com/TheHackersNews",
-    "conquer-your-risk": (
+    "Conquer Your Risk": (
         "https://www.conquer-your-risk.com/category/articles/feed"
     ),
     "Quarkslab": "https://blog.quarkslab.com/feeds/all.atom.xml"
@@ -48,7 +48,7 @@ def get_rss_feed(rss_url: dict = rss_url, n: int = 5):
                     ).isoformat()
             final_feed.append(
                 BlogPost(
-                    title=entry.title,
+                    title=f"[{source_key}] : {entry.title}",
                     link=entry.link,
                     description=entry.description,
                     published=entry.published,
