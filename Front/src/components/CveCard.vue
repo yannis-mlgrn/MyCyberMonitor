@@ -6,6 +6,8 @@
     <div class="list-col-grow">
       <div> <strong>{{ cve.id }}</strong></div>
       <div class="text-xs uppercase font-semibold opacity-60">
+        <strong v-if="cve.cvss != null"> CVSS : {{ cve.cvss }}</strong>
+        <strong v-if="cve.cvss == null"> CVSS : NA </strong> <br>
         {{ cve.description }}
         <br>
         <a :href="cve.link" target="_blank" class="text-blue-500 underline">Learn more</a>
