@@ -4,6 +4,6 @@ from typing import Optional
 
 class CVE(BaseModel):
     id: str
-    cvss: Optional[float] = str
+    cvss: Optional[float] = None
     description: str
     link: str
