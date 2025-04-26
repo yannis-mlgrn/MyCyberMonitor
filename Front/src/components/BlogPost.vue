@@ -3,7 +3,7 @@
   <div class="card-body">
     <h2 class="card-title blog-title">{{ blog.title }}</h2>
     <p v-html="blog.description"> </p>
-    <p> écrit par <strong>{{ blog.author }}</strong></p>
+    <p> written by <strong>{{ blog.author }}</strong></p>
     <div class="justify-end card-actions">
     <a :href="blog.link" class="btn btn-primary">Read More →</a>
     </div>
