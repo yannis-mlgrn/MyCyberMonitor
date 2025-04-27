@@ -63,12 +63,11 @@ function formatDate(dateString) {
   color: #2b6cb0;
 }
 
-/* Style pour positionner la date en bas à gauche */
 .publication-date {
   font-size: 0.9rem;
-  position: absolute; /* Utilisation de position absolue */
-  bottom: 10px; /* Positionné à 10px du bas */
-  left: 10px;   /* Positionné à 10px de la gauche */
-  margin: 0;    /* Enlever les marges pour éviter tout décalage */
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  margin: 0;
 }
 </style>
