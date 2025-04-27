@@ -1,17 +1,19 @@
-## Installation du projet Vue.js avec Tailwind CSS
+## 🚀 Project Installation: My Cyber Monitor frontend
 
-1. **Installation des dépendances**  
-    Installez les dépendances nécessaires en utilisant npm ou yarn :
+1. **📦 Install Dependencies**  
+    Use npm or yarn to install the required dependencies:
     ```bash
     npm install
-    # ou
+    # or
     yarn install
     ```
 
-2. **Démarrage du projet**  
-    Lancez le serveur de développement pour vérifier le bon fonctionnement de l'application :
+2. **🖥️ Start the Development Server**  
+    Run the development server to ensure the application works correctly:
     ```bash
     npm run dev
-    # ou
+    # or
+    yarn dev
+    ```
     yarn dev
     ```
