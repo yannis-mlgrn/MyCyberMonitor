@@ -1,5 +1,7 @@
 ## 🚀 Project Installation: My Cyber Monitor frontend
 
+![front view](doc/screen.png)
+
 1. **📦 Install Dependencies**  
     Use npm or yarn to install the required dependencies:
     ```bash
@@ -15,5 +17,4 @@
     # or
     yarn dev
     ```
-    yarn dev
-    ```
+
