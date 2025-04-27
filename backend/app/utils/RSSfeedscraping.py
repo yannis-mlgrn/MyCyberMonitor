@@ -9,7 +9,8 @@ rss_url = {
     "Conquer Your Risk": (
         "https://www.conquer-your-risk.com/category/articles/feed"
     ),
-    "Quarkslab": "https://blog.quarkslab.com/feeds/all.atom.xml"
+    "Quarkslab": "https://blog.quarkslab.com/feeds/all.atom.xml",
+    "Kaspersky": "https://www.kaspersky.com/blog/feed/"
 }
 
 
