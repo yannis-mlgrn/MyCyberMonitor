@@ -2,7 +2,7 @@
   <div class="card w-225 bg-base-100 card-md card-border shadow-sm ">
     <div class="card-body">
       <h2 class="card-title blog-title">{{ blog.title }}</h2>
-      <p v-html="blog.description"> </p>
+      <p v-html="getShortDescription(blog.description)"></p>
       <br>
       <p>Written by <strong>{{ blog.author }}</strong></p>
       
@@ -39,6 +39,14 @@ function formatDate(dateString) {
     hour12: true      // Affichage de l'heure au format AM/PM
   });
 }
+
+// Function to get a short description
+function getShortDescription(description) {
+  if (description.length > 2000) {
+    return description.slice(0, 400) + '...';
+  }
+  return description;
+}
 </script>
 
 <style scoped>
@@ -62,6 +70,7 @@ function formatDate(dateString) {
 .blog-link:hover {
   color: #2b6cb0;
 }
+
 
 .publication-date {
   font-size: 0.9rem;

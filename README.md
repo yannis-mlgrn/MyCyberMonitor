@@ -18,7 +18,10 @@ We leverage the following trusted sources and blogs to provide you with up-to-da
 - [The Hacker News](https://thehackernews.com/)
 - [Conquer Your Risk](https://www.conquer-your-risk.com)
 - [Quarkslab Blog](https://blog.quarkslab.com)
-- [Kaspersky Blog](https://www.kaspersky.com/blog/)
+- [Kaspersky Blog](https://www.kaspersky.com/blog/feed/)
+- [Intigriti Blog](https://www.intigriti.com/blog/feed)
+- [Infosec Writeups](https://infosecwriteups.com/feed)
+- [HackerOne Blog](https://www.hackerone.com/taxonomy/term/291/feed)
 
 ---
 
