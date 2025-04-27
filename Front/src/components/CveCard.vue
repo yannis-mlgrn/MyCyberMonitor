@@ -31,7 +31,6 @@ defineProps({
   margin-bottom: 1rem;
   padding: 1rem;
   border-radius: 0.75rem;
-  background-color: #fff;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 }
 
@@ -41,14 +40,6 @@ defineProps({
 
 .text-4xl {
   font-size: 2rem;
-}
-
-.text-blue-500 {
-  color: #3182ce;
-}
-
-.text-blue-500:hover {
-  color: #2b6cb0;
 }
 
 .text-xs {
