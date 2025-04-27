@@ -18,6 +18,7 @@ We leverage the following trusted sources and blogs to provide you with up-to-da
 - [The Hacker News](https://thehackernews.com/)
 - [Conquer Your Risk](https://www.conquer-your-risk.com)
 - [Quarkslab Blog](https://blog.quarkslab.com)
+- [Kaspersky Blog](https://www.kaspersky.com/blog/)
 
 ---
 
