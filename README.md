@@ -26,7 +26,7 @@ We leverage the following trusted sources and blogs to provide you with up-to-da
 ![Frontend Screenshot](./Front/doc/screen.png)
 
 The frontend provides an intuitive interface to explore the latest cybersecurity trends.  
-For installation and setup instructions, refer to the [Frontend Documentation](frontend/README.md).
+For installation and setup instructions, refer to the [Frontend Documentation](Front/README.md).
 
 ---
 
