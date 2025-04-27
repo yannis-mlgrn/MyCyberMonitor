@@ -38,8 +38,7 @@ const blogs = ref([])
 onMounted(async () => {
   try {
     blogs.value = await getLatestPosts();  // fetching blog posts
-    console.log(blogs.value);
-    cves.value = await getRecentCVEs(5) // fetching CVEs
+    cves.value = await getRecentCVEs(15) // fetching CVEs
   } catch (error) {
     console.error('Failed to fetch blog posts:', error);
   }
