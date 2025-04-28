@@ -46,7 +46,7 @@ You can quickly set up both the frontend and backend using Docker.
 
    ```bash
    git clone https://github.com/your-repo/my-cyber-monitor.git
-   cd my-cyber-monitor
+   cd MyCyberMonitor
    ```
 
 2. Build and start the services:
