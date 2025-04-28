@@ -15,6 +15,7 @@ rss_url = {
     "Intigriti": "https://www.intigriti.com/blog/feed",
     "Infosec Writeups": "https://infosecwriteups.com/feed",
     "hackerone": "https://www.hackerone.com/taxonomy/term/291/feed",
+    "Root-Me": "https://blog.root-me.org/index.xml",
 }
 
 
