@@ -40,10 +40,7 @@ scheduler.start()
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[
-        "https://mycybermonitor.yannis-mlgrn.fr",
-        "http://localhost:5173",
-    ],
+    allow_origins=['*'],
     allow_credentials=False,
     allow_methods=["GET", "POST"],
     allow_headers=["*"],
