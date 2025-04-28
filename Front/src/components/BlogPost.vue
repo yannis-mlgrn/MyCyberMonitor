@@ -7,7 +7,7 @@
       <p>Written by <strong>{{ blog.author }}</strong></p>
       
       <div class="justify-end card-actions">
-        <a :href="blog.link" class="btn btn-primary">Read More →</a>
+        <a :href="blog.link" target="_blank" class="btn btn-primary">Read More →</a>
       </div>
       <p class="publication-date"> <strong>{{ formatDate(blog.published) }}</strong></p>
     </div>
