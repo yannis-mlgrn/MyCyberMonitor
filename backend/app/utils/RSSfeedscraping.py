@@ -2,6 +2,7 @@ import feedparser
 from app.models.blogPost import BlogPost
 from datetime import datetime
 import json
+from dateutil import parser
 
 rss_url = {
     "Synactiv": "https://www.synacktiv.com/en/feed/lastblog.xml",
@@ -10,7 +11,10 @@ rss_url = {
         "https://www.conquer-your-risk.com/category/articles/feed"
     ),
     "Quarkslab": "https://blog.quarkslab.com/feeds/all.atom.xml",
-    "Kaspersky": "https://www.kaspersky.com/blog/feed/"
+    "Kaspersky": "https://www.kaspersky.com/blog/feed/",
+    "Intigriti": "https://www.intigriti.com/blog/feed",
+    "Infosec Writeups": "https://infosecwriteups.com/feed",
+    "hackerone": "https://www.hackerone.com/taxonomy/term/291/feed",
 }
 
 
@@ -24,7 +28,7 @@ def get_rss_feed(rss_url: dict = rss_url, n: int = 5):
     with open('app/data/blogpost.json', "r", encoding="utf-8") as data:
         posts = json.load(data)
     for url in rss_url.values():
-        # Parse le flux RSS
+        # Parse the RSS feed
         feed = feedparser.parse(url)
         for entry in feed.entries[:n]:
             source_key = next(
@@ -43,10 +47,7 @@ def get_rss_feed(rss_url: dict = rss_url, n: int = 5):
             )
             vote = existing_post["vote"] if existing_post else 0
             # Check the format of the published date
-            if not is_isoformat(entry.published):
-                entry.published = datetime.strptime(
-                        entry.published, "%a, %d %b %Y %H:%M:%S %z"
-                    ).isoformat()
+            entry.published = parse_rss_date(entry.published)
             final_feed.append(
                 BlogPost(
                     title=f"[{source_key}] : {entry.title}",
@@ -75,12 +76,21 @@ def get_rss_feed(rss_url: dict = rss_url, n: int = 5):
         outfile.write(json_object)
 
 
-def is_isoformat(date_str: str) -> bool:
+def parse_rss_date(date_str: str) -> str:
     """
-    Check if the given date string is in ISO format.
+    Parse the RSS date and return an ISO formatted string.
+    It handles both ISO format and other date formats, including
+    'Sun, 27 Apr 2025 00:00:00 GMT'.
     """
     try:
-        datetime.fromisoformat(date_str)
-        return True
+        # First, try to parse ISO format
+        return datetime.fromisoformat(date_str).isoformat()
     except ValueError:
-        return False
+        try:
+            # If it fails, attempt to use dateutil.parser.parse
+            # for other formats
+            parsed_date = parser.parse(date_str)
+            return parsed_date.isoformat()
+        except (ValueError, TypeError) as e:
+            print(f"Error parsing date: {date_str} - {e}")
+            return date_str  # Return the original date string if parsing fails
