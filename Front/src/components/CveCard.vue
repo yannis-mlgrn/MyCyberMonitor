@@ -1,6 +1,5 @@
 <template>
   <li class="list-row">
-    <!-- Affichage de l'index formaté -->
     <div class="text-4xl font-thin opacity-30 tabular-nums"> <strong>{{ index + 1 }}</strong></div>
     
     <div class="list-col-grow">
@@ -17,15 +16,14 @@
 </template>
 
 <script setup>
-// Props du composant : cve (l'objet CVE) et index (l'index formaté)
+// Component props: cve (the CVE object) and index (the formatted index)
 defineProps({
   cve: Object,
-  index: Number // L'index est maintenant une chaîne (formatée en "01", "02", etc.)
+  index: Number
 });
 </script>
 
 <style scoped>
-/* Style pour le composant CveCard */
 .list-row {
   display: flex;
   margin-bottom: 1rem;
@@ -45,5 +43,4 @@ defineProps({
 .text-xs {
   font-size: 0.75rem;
 }
-
 </style>

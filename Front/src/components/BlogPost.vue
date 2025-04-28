@@ -29,14 +29,14 @@ function formatDate(dateString) {
   }
 
   return date.toLocaleString('en-US', {
-    weekday: 'long',  // Nom du jour (par exemple "Saturday")
-    year: 'numeric',  // Année (par exemple "2025")
-    month: 'long',    // Mois (par exemple "April")
-    day: 'numeric',   // Jour (par exemple "26")
-    hour: '2-digit',  // Heure avec 2 chiffres (par exemple "04")
-    minute: '2-digit',// Minute avec 2 chiffres (par exemple "08")
-    second: '2-digit',// Seconde avec 2 chiffres (par exemple "00")
-    hour12: true      // Affichage de l'heure au format AM/PM
+    weekday: 'long',  // Day name (e.g., "Saturday")
+    year: 'numeric',  // Year (e.g., "2025")
+    month: 'long',    // Month (e.g., "April")
+    day: 'numeric',   // Day (e.g., "26")
+    hour: '2-digit',  // Hour with 2 digits (e.g., "04")
+    minute: '2-digit',// Minute with 2 digits (e.g., "08")
+    second: '2-digit',// Second with 2 digits (e.g., "00")
+    hour12: true      // Display time in AM/PM format
   });
 }
 
