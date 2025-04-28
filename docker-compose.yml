@@ -1,0 +1,14 @@
+version: "3.9"
+
+services:
+  backend:
+    build: ./backend
+    ports:
+      - "8000:8000"
+    restart: always
+
+  frontend:
+    build: ./Front
+    ports:
+      - "5175:80"
+    restart: always

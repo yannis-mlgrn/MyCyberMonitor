@@ -43,6 +43,7 @@ app.add_middleware(
     allow_origins=[
         "https://mycybermonitor.yannis-mlgrn.fr",
         "http://localhost:5173",
+        "http://localhost:5175",
     ],
     allow_credentials=False,
     allow_methods=["GET", "POST"],

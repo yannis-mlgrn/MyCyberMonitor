@@ -25,9 +25,49 @@ We leverage the following trusted sources and blogs to provide you with up-to-da
 
 ---
 
-## 🎨 Frontend
+## 🎨 Preview
 
 ![Frontend Screenshot](./Front/doc/screen.png)
+
+---
+
+## 🐳 How to Install with Docker
+
+You can quickly set up both the frontend and backend using Docker.
+
+### Prerequisites
+
+- [Docker](https://docs.docker.com/get-docker/) installed
+- [Docker Compose](https://docs.docker.com/compose/) installed
+
+### Steps
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/your-repo/my-cyber-monitor.git
+   cd my-cyber-monitor
+   ```
+
+2. Build and start the services:
+
+    ```bash
+    docker-compose up
+    ```
+
+    or build the docker image :
+
+    ```bash
+    docker-compose up --build
+    ```
+
+3. Access the application:
+    - Frontend : [http://localhost:5175/](http://localhost:5175/)
+    - Backend : [http://localhost:8000/docs](http://localhost:8000/docs)
+
+---
+
+## 🎨 Frontend
 
 The frontend provides an intuitive interface to explore the latest cybersecurity trends.  
 For installation and setup instructions, refer to the [Frontend Documentation](Front/README.md).
