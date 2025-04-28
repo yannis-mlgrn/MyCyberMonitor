@@ -22,6 +22,7 @@ We leverage the following trusted sources and blogs to provide you with up-to-da
 - [Intigriti Blog](https://www.intigriti.com/blog/feed)
 - [Infosec Writeups](https://infosecwriteups.com/feed)
 - [HackerOne Blog](https://www.hackerone.com/taxonomy/term/291/feed)
+- [Root-Me Blog0](https://blog.root-me.org/)
 
 ---
 
