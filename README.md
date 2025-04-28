@@ -45,7 +45,7 @@ You can quickly set up both the frontend and backend using Docker.
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/your-repo/my-cyber-monitor.gi
+   git clone https://github.com/your-repo/my-cyber-monitor.git
    cd my-cyber-monitor
    ```
 
