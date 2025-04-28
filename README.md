@@ -23,6 +23,7 @@ We leverage the following trusted sources and blogs to provide you with up-to-da
 - [Infosec Writeups](https://infosecwriteups.com/feed)
 - [HackerOne Blog](https://www.hackerone.com/taxonomy/term/291/feed)
 - [Root-Me Blog](https://blog.root-me.org/)
+- [HACKADAY](https://hackaday.com/)
 
 ---
 

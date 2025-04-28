@@ -16,10 +16,11 @@ rss_url = {
     "Infosec Writeups": "https://infosecwriteups.com/feed",
     "hackerone": "https://www.hackerone.com/taxonomy/term/291/feed",
     "Root-Me": "https://blog.root-me.org/index.xml",
+    "HACKADAY": "https://hackaday.com/feed/",
 }
 
 
-def get_rss_feed(rss_url: dict = rss_url, n: int = 5):
+def get_rss_feed(rss_url: dict = rss_url, n: int = 15):
     """
     fetch the RSS feed from the given URL and return the parsed feed.
     It fetches the 'n' most recent entries from each feed.
