@@ -26,7 +26,6 @@
 </template>
 
 <script setup>
-// Import des composants nécessaires
 import CveCard from './components/CveCard.vue'
 import BlogPost from './components/BlogPost.vue'
 import { ref, onMounted } from 'vue'
@@ -46,8 +45,6 @@ onMounted(async () => {
 </script>
 
 <style scoped>
-/* Style global pour l'application */
-
 :root {
   --gap: 2rem;
   --radius: 0.75rem;
@@ -116,7 +113,7 @@ onMounted(async () => {
   text-align: center;
   font-size: 1.5rem;
   font-weight: 400;
-  margin: 4rem 0 1rem; /* Augmente l'espace au-dessus */
+  margin: 4rem 0 1rem;
   border-bottom: 1px solid #e5e7eb;
   padding-bottom: 0.5rem;
 }

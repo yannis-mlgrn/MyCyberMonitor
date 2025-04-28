@@ -1,23 +1,23 @@
-# Étape 1: Build de l'application frontend
+# Step 1: Build the frontend application
 FROM node:22.15.0-slim AS builder
 
 WORKDIR /app
 
-# Copie les fichiers nécessaires
+# Copy the necessary files
 COPY package*.json ./
 RUN npm install
 COPY . .
 
-# Utiliser une variable d'environnement dans le build
+# Use an environment variable during the build
 ARG VITE_API_URL=http://localhost:8000
 RUN echo "VITE_API_URL=$VITE_API_URL" && npm run build
 
-# Étape 2: Servir l'application avec Nginx
+# Step 2: Serve the application with Nginx
 FROM nginx:alpine
 
-# Copier les fichiers construits depuis l'étape précédente
+# Copy the built files from the previous step
 COPY --from=builder /app/dist /usr/share/nginx/html
 
-# Configurer Nginx pour servir l'application
+# Configure Nginx to serve the application
 EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
