@@ -1,6 +1,6 @@
 import feedparser
 from app.models.blogPost import BlogPost
-from datetime import datetime
+from datetime import datetime, timedelta, timezone
 import json
 from dateutil import parser
 
@@ -20,60 +20,71 @@ rss_url = {
 }
 
 
-def get_rss_feed(rss_url: dict = rss_url, n: int = 15):
+def get_rss_feed(rss_url: dict = rss_url):
     """
-    fetch the RSS feed from the given URL and return the parsed feed.
-    It fetches the 'n' most recent entries from each feed.
-    These entries are returned as a list of BlogPost objects.
+    Fetch the RSS feed from the given URLs and return the parsed feed.
+    It returns only the entries from the last 7 days as BlogPost objects.
     """
     final_feed = []
+    one_week_ago = datetime.now(timezone.utc) - timedelta(days=7)
     with open('app/data/blogpost.json', "r", encoding="utf-8") as data:
         posts = json.load(data)
+
     for url in rss_url.values():
         # Parse the RSS feed
         feed = feedparser.parse(url)
-        for entry in feed.entries[:n]:
+        for entry in feed.entries:
             source_key = next(
                 (key for key, value in rss_url.items() if value == url),
                 "unknown"
             )
+
+            # Try to parse date
+            published_str = parse_rss_date(entry.published)
+            try:
+                published_date = datetime.fromisoformat(published_str)
+            except ValueError:
+                continue  # Skip if date can't be parsed
+
+            # Filter to keep only posts from the last 7 days
+            if published_date < one_week_ago:
+                continue
+
+            # Author fallback
             if (
                 hasattr(entry, 'author') and
                 ('@' in entry.author or 'webmaster' in entry.author.lower())
             ):
                 entry.author = source_key
-            # Check if the title matches an existing post and get its vote
+
+            # Check for existing vote
             existing_post = next(
                 (post for post in posts if post["title"] == entry.title),
                 None
             )
             vote = existing_post["vote"] if existing_post else 0
-            # Check the format of the published date
-            entry.published = parse_rss_date(entry.published)
+
             final_feed.append(
                 BlogPost(
                     title=f"[{source_key}] : {entry.title}",
                     link=entry.link,
                     description=entry.description,
-                    published=entry.published,
-                    author=(
-                        entry.author
-                        if hasattr(entry, 'author')
-                        else source_key
-                    ),
+                    published=published_str,
+                    author=getattr(entry, 'author', source_key),
                     vote=vote
                 )
             )
-    # Sort the list of blog posts by published date
+
+    # Sort by date descending
     final_feed = sorted(
         final_feed, key=lambda post: post.published, reverse=True
     )
-    # Create the output JSON file
+
+    # Dump to JSON
     json_object = json.dumps(
         [post.model_dump() for post in final_feed],
         indent=4
     )
-    # Write the JSON object to a file
     with open('app/data/blogpost.json', "w") as outfile:
         outfile.write(json_object)
 
