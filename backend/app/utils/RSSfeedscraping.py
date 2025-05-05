@@ -16,7 +16,6 @@ rss_url = {
     "Infosec Writeups": "https://infosecwriteups.com/feed",
     "hackerone": "https://www.hackerone.com/taxonomy/term/291/feed",
     "Root-Me": "https://blog.root-me.org/index.xml",
-    "HACKADAY": "https://hackaday.com/feed/",
 }
 
 
